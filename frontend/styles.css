@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bean & Bloom Coffee House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <p class="brand-name">Bean & Bloom</p>
+            <span>Coffee House</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#menu">Menu</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="cart-button" id="cartButton">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button id="authButton" class="primary-button">Login</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Freshly roasted daily</span>
+            <h1>Crafted coffee that feels like home.</h1>
+            <p>
+              A warm neighborhood coffee experience with artisan drinks,
+              handcrafted pastries, and a review-driven guest experience.
+            </p>
+            <div class="hero-actions">
+              <a href="#menu" class="primary-button">Explore menu</a>
+              <a href="#reviews" class="secondary-button">Read reviews</a>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <strong id="shopRating">4.8</strong>
+                <span>Average rating</span>
+              </div>
+              <div>
+                <strong id="reviewCount">0</strong>
+                <span>Customer reviews</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>Order support</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="coffee-art">
+              <div class="cup"></div>
+              <div class="steam steam-one"></div>
+              <div class="steam steam-two"></div>
+              <div class="steam steam-three"></div>
+            </div>
+            <div class="promo-tag">Today’s special</div>
+            <h3>Honey Cinnamon Latte</h3>
+            <div class="promo-row">
+              <span>Signature blend</span>
+              <strong>$6.50</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="container stats-grid">
+          <article class="stat-card">
+            <span class="stat-label">Orders today</span>
+            <strong id="ordersToday">0</strong>
+            <small>Active orders</small>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Popular items</span>
+            <strong id="popularItems">3</strong>
+            <small>Best sellers</small>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Inventory alerts</span>
+            <strong id="inventoryAlerts">0</strong>
+            <small>Low stock</small>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Loyalty</span>
+            <strong id="loyaltyPoints">0</strong>
+            <small>Points earned</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="shop-layout container" id="menu">
+        <div class="menu-panel">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Coffee menu</span>
+              <h2>Fresh favorites</h2>
+            </div>
+          </div>
+          <div class="menu-grid" id="menuGrid"></div>
+        </div>
+
+        <aside class="cart-panel">
+          <div class="section-heading compact">
+            <div>
+              <span class="eyebrow">Your order</span>
+              <h2>Cart</h2>
+            </div>
+          </div>
+          <div id="cartItems" class="cart-items"></div>
+          <div class="summary-box">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="subtotal">$0.00</strong>
+            </div>
+            <div class="summary-row">
+              <span>Service fee</span>
+              <strong id="serviceFee">$0.00</strong>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <strong id="total">$0.00</strong>
+            </div>
+          </div>
+          <button id="checkoutBtn" class="checkout-button">Place order</button>
+        </aside>
+      </section>
+
+      <section class="reviews-section" id="reviews">
+        <div class="container reviews-layout">
+          <div class="review-block">
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">Guest feedback</span>
+                <h2>Customer reviews</h2>
+              </div>
+            </div>
+            <div id="reviewList" class="review-list"></div>
+          </div>
+
+          <div class="review-form-card">
+            <span class="eyebrow">Write a review</span>
+            <h3>Tell us how your visit was</h3>
+            <form id="reviewForm">
+              <label>
+                Name
+                <input type="text" id="customerName" placeholder="Your name" required />
+              </label>
+
+              <label>
+                Rating
+                <div class="stars" id="starGroup">
+                  <button type="button" class="star-button" data-value="1">★</button>
+                  <button type="button" class="star-button" data-value="2">★</button>
+                  <button type="button" class="star-button" data-value="3">★</button>
+                  <button type="button" class="star-button" data-value="4">★</button>
+                  <button type="button" class="star-button" data-value="5">★</button>
+                </div>
+              </label>
+
+              <label>
+                Comment
+                <textarea id="reviewComment" rows="4" placeholder="Share your experience..." required></textarea>
+              </label>
+
+              <button type="submit" class="primary-button full-width">Submit review</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="inventory-section container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Operations</span>
+            <h2>Inventory status</h2>
+          </div>
+        </div>
+        <div class="inventory-grid" id="inventoryGrid"></div>
+      </section>
+    </main>
+
+    <footer id="about" class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="brand-name">Bean & Bloom</p>
+          <p>Fresh coffee, warm service, and memorable mornings.</p>
+        </div>
+        <div>
+          <p>📍 134 Maple Avenue, Downtown</p>
+          <p>📞 (415) 555-0143</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
